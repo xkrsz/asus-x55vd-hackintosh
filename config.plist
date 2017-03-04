@@ -64,13 +64,9 @@
 					<key>Disabled</key>
 					<true/>
 					<key>Find</key>
-					<data>
-					X09TSQ==
-					</data>
+					<data>X09TSQ==</data>
 					<key>Replace</key>
-					<data>
-					WE9TSQ==
-					</data>
+					<data>WE9TSQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -78,13 +74,9 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>
-					RUhDMQ==
-					</data>
+					<data>RUhDMQ==</data>
 					<key>Replace</key>
-					<data>
-					RUgwMQ==
-					</data>
+					<data>RUgwMQ==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -92,13 +84,9 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>
-					RUhDMg==
-					</data>
+					<data>RUhDMg==</data>
 					<key>Replace</key>
-					<data>
-					RUgwMg==
-					</data>
+					<data>RUgwMg==</data>
 				</dict>
 			</array>
 			<key>ReuseFFFF</key>
@@ -192,9 +180,7 @@
 				<key>Key</key>
 				<string>disabled:AAPL,os-info</string>
 				<key>Value</key>
-				<data>
-				MEkBERERCAAAAfAfAQAAABAHAAA=
-				</data>
+				<data>MEkBERERCAAAAfAfAQAAABAHAAA=</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -206,9 +192,7 @@
 				<key>Key</key>
 				<string>AAPL,snb-platform-id</string>
 				<key>Value</key>
-				<data>
-				AAABAA==
-				</data>
+				<data>AAEAAA==</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -339,15 +323,11 @@
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
-				<data>
-				AgUAAAAEAAAHAAAA
-				</data>
+				<data>AgUAAAAEAAAHAAAA</data>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelSNBGraphicsFB</string>
 				<key>Replace</key>
-				<data>
-				AgUAAAAIAAAHAAAA
-				</data>
+				<data>AgUAAAAIAAAHAAAA</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -355,15 +335,11 @@
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
-				<data>
-				AwQAAAAEAAAJAAAA
-				</data>
+				<data>AwQAAAAEAAAJAAAA</data>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelSNBGraphicsFB</string>
 				<key>Replace</key>
-				<data>
-				AwQAAAAIAAAJAAAA
-				</data>
+				<data>AwQAAAAIAAAJAAAA</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -371,15 +347,11 @@
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
-				<data>
-				BAYAAAAEAAAJAAAA
-				</data>
+				<data>BAYAAAAEAAAJAAAA</data>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelSNBGraphicsFB</string>
 				<key>Replace</key>
-				<data>
-				BAYAAAAIAAAJAAAA
-				</data>
+				<data>BAYAAAAIAAAJAAAA</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -387,17 +359,11 @@
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
-				<data>
-				AQIEABAHAAAQBwAABQMAAAIAAAAwAAAAAgUAAAAEAAAH
-				AAAAAwQAAAAEAAAJAAAABAYAAAAEAAAJAAAA
-				</data>
+				<data>AQIEABAHAAAQBwAABQMAAAIAAAAwAAAAAgUAAAAEAAAHAAAAAwQAAAAEAAAJAAAABAYAAAAEAAAJAAAA</data>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelSNBGraphicsFB</string>
 				<key>Replace</key>
-				<data>
-				AQIDABAHAAAQBwAABgIAAAABAAAJAAAABQMAAAIAAAAw
-				AAAABAYAAAAIAAAJAAAAAAAAAAAAAAAAAAAA
-				</data>
+				<data>AQIDABAHAAAQBwAABgIAAAABAAAJAAAABQMAAAIAAAAwAAAABAYAAAAIAAAJAAAAAAAAAAAAAAAAAAAA</data>
 			</dict>
 		</array>
 	</dict>
