@@ -7363,465 +7363,7 @@ DefinitionBlock ("", "DSDT", 2, "_ASUS_", "Notebook", 0x00000013)
                     SAVO ()
                 }
 
-                Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
-                {
-                    Name (_T_2, Zero)  // _T_x: Emitted by ASL Compiler
-                    Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                    Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
-                    If (LEqual (Arg0, ToUUID ("9d95a0a0-0060-4d48-b34d-7e5fea129fd4")))
-                    {
-                        Store (Zero, Local0)
-                        Store (ShiftLeft (DerefOf (Index (Arg3, 0x03)), 0x18), Local0)
-                        Add (ShiftLeft (DerefOf (Index (Arg3, 0x02)), 0x10), Local0, Local0)
-                        Add (ShiftLeft (DerefOf (Index (Arg3, One)), 0x08), Local0, Local0)
-                        Add (ShiftLeft (DerefOf (Index (Arg3, Zero)), Zero), Local0, Local0)
-                        While (One)
-                        {
-                            Store (ToInteger (Arg2), _T_0)
-                            If (LEqual (_T_0, Zero))
-                            {
-                                Return (Buffer (0x04)
-                                {
-                                     0x3F, 0x00, 0x00, 0x00                         
-                                })
-                            }
-                            ElseIf (LEqual (_T_0, One))
-                            {
-                                Return (Buffer (0x04)
-                                {
-                                     0x01, 0x30, 0x00, 0x07                         
-                                })
-                            }
-                            ElseIf (LEqual (_T_0, 0x02))
-                            {
-                                If (And (Local0, 0x10))
-                                {
-                                    And (Local0, 0x0F, Local1)
-                                    EVD9 ()
-                                    Store (Local1, HGAP)
-                                }
-
-                                Or (DSM2, 0x10, DSM2)
-                                Return (DSM2)
-                            }
-                            ElseIf (LEqual (_T_0, 0x03))
-                            {
-                                And (Local0, 0x03, Local0)
-                                If (LEqual (Local0, One))
-                                {
-                                    ^^PEG0.PEGP.DON ()
-                                    Return (One)
-                                }
-                                ElseIf (LEqual (Local0, 0x02))
-                                {
-                                    ^^PEG0.PEGP.DOFF ()
-                                    Return (Zero)
-                                }
-                                Else
-                                {
-                                    Return (^^PEG0.PEGP.DSTA ())
-                                }
-
-                                Return (One)
-                            }
-                            ElseIf (LEqual (_T_0, 0x04))
-                            {
-                                Name (NFBU, Buffer (0x04)
-                                {
-                                     0x00, 0x90, 0x10, 0x04                         
-                                })
-                                Name (HBDP, Zero)
-                                CreateField (NFBU, Zero, 0x0C, BDRF)
-                                CreateField (NFBU, 0x0C, One, BDOF)
-                                CreateField (NFBU, 0x0D, 0x02, PSRF)
-                                CreateField (NFBU, 0x0F, One, PSOF)
-                                CreateField (NFBU, 0x10, 0x04, PTVF)
-                                CreateField (NFBU, 0x14, One, PTVO)
-                                CreateField (NFBU, 0x15, 0x05, TVFF)
-                                CreateField (NFBU, 0x1A, One, TVOF)
-                                While (One)
-                                {
-                                    Store (ToInteger (HBDP), _T_1)
-                                    If (LEqual (_T_1, 0x07))
-                                    {
-                                        Store (0x10, Index (NFBU, Zero))
-                                    }
-                                    ElseIf (LEqual (_T_1, 0x0B))
-                                    {
-                                        Store (0x11, Index (NFBU, Zero))
-                                    }
-                                    ElseIf (LEqual (_T_1, 0x0D))
-                                    {
-                                        Store (0x12, Index (NFBU, Zero))
-                                    }
-                                    ElseIf (LEqual (_T_1, 0x0E))
-                                    {
-                                        Store (0x14, Index (NFBU, Zero))
-                                    }
-                                    ElseIf (LEqual (_T_1, 0x0F))
-                                    {
-                                        Store (0x18, Index (NFBU, Zero))
-                                    }
-                                    Else
-                                    {
-                                        Store (HBDP, Index (NFBU, Zero))
-                                    }
-
-                                    Break
-                                }
-
-                                Return (NFBU)
-                            }
-                            ElseIf (LEqual (_T_0, 0x05))
-                            {
-                                Store (Local0, \CADL)
-                                Store (ShiftRight (Local0, 0x0C), \CSTE)
-                                If (LEqual (QATH, One))
-                                {
-                                    Store (Zero, QATH)
-                                    Return (Zero)
-                                }
-
-                                Store (Local0, Local1)
-                                If (And (Local1, 0x01000000))
-                                {
-                                    If (LGreater (TLST, 0x0A))
-                                    {
-                                        Store (One, TLST)
-                                    }
-
-                                    Store (TLST, Local0)
-                                    Store (ShiftLeft (Local0, 0x08), Local1)
-                                    Or (One, Local1, Local1)
-                                    Return (Local1)
-                                }
-                                ElseIf (LEqual (Local1, Zero))
-                                {
-                                    Store (DSM5, Local0)
-                                    Return (Local0)
-                                }
-                            }
-                            ElseIf (LEqual (_T_0, 0x06))
-                            {
-                                Return (Package (0x1A)
-                                {
-                                    0x0110, 
-                                    0x2C, 
-                                    0x80000100, 
-                                    0x2C, 
-                                    0x0110, 
-                                    0x80000100, 
-                                    0x2C, 
-                                    0x80007330, 
-                                    0x2C, 
-                                    0x0110, 
-                                    0x80007330, 
-                                    0x2C, 
-                                    0x80000100, 
-                                    0x80007330, 
-                                    0x2C, 
-                                    0x80006340, 
-                                    0x2C, 
-                                    0x0110, 
-                                    0x80006340, 
-                                    0x2C, 
-                                    0x80000100, 
-                                    0x80006340, 
-                                    0x2C, 
-                                    0x80007330, 
-                                    0x80006340, 
-                                    0x2C
-                                })
-                            }
-                            Else
-                            {
-                                Return (Buffer (0x04)
-                                {
-                                     0x02, 0x00, 0x00, 0x80                         
-                                })
-                            }
-
-                            Break
-                        }
-                    }
-
-                    If (LEqual (Arg0, ToUUID ("7ed873d3-c2d0-4e4f-a854-0f1317b01c2c")))
-                    {
-                        If (LEqual (Arg1, One))
-                        {
-                            If (LEqual (Arg2, Zero))
-                            {
-                                Return (Buffer (0x08)
-                                {
-                                     0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
-                                })
-                            }
-
-                            If (LEqual (Arg2, One))
-                            {
-                                Return (Package (0x06)
-                                {
-                                    0x05, 
-                                    Package (0x02)
-                                    {
-                                        0x80010400, 
-                                        Buffer (0x04)
-                                        {
-                                             0x02, 0x03, 0x03, 0x00                         
-                                        }
-                                    }, 
-
-                                    Package (0x02)
-                                    {
-                                        0x80010100, 
-                                        Buffer (0x04)
-                                        {
-                                             0x01, 0x03, 0x03, 0x00                         
-                                        }
-                                    }, 
-
-                                    Package (0x02)
-                                    {
-                                        0x80010300, 
-                                        Buffer (0x04)
-                                        {
-                                             0x05, 0x03, 0x03, 0x00                         
-                                        }
-                                    }, 
-
-                                    Package (0x02)
-                                    {
-                                        0x80010301, 
-                                        Buffer (0x04)
-                                        {
-                                             0x08, 0x03, 0x03, 0x00                         
-                                        }
-                                    }, 
-
-                                    Package (0x02)
-                                    {
-                                        0x80000302, 
-                                        Buffer (0x04)
-                                        {
-                                             0x0A, 0x03, 0x03, 0x00                         
-                                        }
-                                    }
-                                })
-                            }
-
-                            Return (One)
-                        }
-
-                        Return (One)
-                    }
-
-                    If (LEqual (Arg0, ToUUID ("a486d8f8-0bda-471b-a72b-6042a6b5bee0")))
-                    {
-                        Store (Zero, Local0)
-                        Store (ShiftLeft (DerefOf (Index (Arg3, 0x03)), 0x18), Local0)
-                        Add (ShiftLeft (DerefOf (Index (Arg3, 0x02)), 0x10), Local0, Local0)
-                        Add (ShiftLeft (DerefOf (Index (Arg3, One)), 0x08), Local0, Local0)
-                        Add (ShiftLeft (DerefOf (Index (Arg3, Zero)), Zero), Local0, Local0)
-                        If (LNotEqual (Arg1, 0x0100))
-                        {
-                            Return (Buffer (0x04)
-                            {
-                                 0x02, 0x00, 0x00, 0x80                         
-                            })
-                        }
-
-                        Name (SUBF, Zero)
-                        Store (Arg2, SUBF)
-                        If (LEqual (SUBF, Zero))
-                        {
-                            Return (Buffer (0x04)
-                            {
-                                 0x01, 0x00, 0x03, 0x04                         
-                            })
-                        }
-                        Else
-                        {
-                            If (LEqual (SUBF, 0x10))
-                            {
-                                ShiftRight (Local0, 0x10, Local2)
-                                If (LEqual (Local2, 0x564B))
-                                {
-                                    Return (OPVK)
-                                }
-
-                                Return (Zero)
-                            }
-                            ElseIf (LEqual (SUBF, 0x1A))
-                            {
-                                If (And (Local0, One))
-                                {
-                                    ShiftRight (Local0, 0x18, Local2)
-                                    Store (Local2, P3MO)
-                                }
-
-                                If (DGPS)
-                                {
-                                    Return (Buffer (0x04)
-                                    {
-                                         0x41, 0x00, 0x00, 0x01                         
-                                    })
-                                }
-                                Else
-                                {
-                                    Return (Buffer (0x04)
-                                    {
-                                         0x59, 0x00, 0x00, 0x01                         
-                                    })
-                                }
-                            }
-
-                            Return (Buffer (0x04)
-                            {
-                                 0x02, 0x00, 0x00, 0x80                         
-                            })
-                        }
-                    }
-
-                    If (LEqual (Arg0, ToUUID ("a3132d01-8cda-49ba-a52e-bc9d46df6b81")))
-                    {
-                        Store (Zero, Local0)
-                        Store (ShiftLeft (DerefOf (Index (Arg3, 0x03)), 0x18), Local0)
-                        Add (ShiftLeft (DerefOf (Index (Arg3, 0x02)), 0x10), Local0, Local0)
-                        Add (ShiftLeft (DerefOf (Index (Arg3, One)), 0x08), Local0, Local0)
-                        Add (ShiftLeft (DerefOf (Index (Arg3, Zero)), Zero), Local0, Local0)
-                        If (LNotEqual (Arg1, 0x0100))
-                        {
-                            Return (Buffer (0x04)
-                            {
-                                 0x02, 0x00, 0x00, 0x80                         
-                            })
-                        }
-
-                        Name (SFNN, Zero)
-                        Store (Arg2, SFNN)
-                        If (LEqual (SFNN, Zero))
-                        {
-                            Return (Buffer (0x08)
-                            {
-                                 0x01, 0x00, 0x08, 0x00, 0x0F, 0x04, 0x00, 0x00 
-                            })
-                        }
-                        ElseIf (LEqual (SFNN, 0x2A))
-                        {
-                            CreateByteField (Arg3, Zero, PSH0)
-                            CreateByteField (Arg3, One, PSH1)
-                            CreateBitField (Arg3, 0x08, GPUT)
-                            CreateBitField (Arg3, 0x09, CPUT)
-                            CreateBitField (Arg3, 0x0A, FANS)
-                            CreateBitField (Arg3, 0x0B, SKIN)
-                            CreateBitField (Arg3, 0x0C, ENGR)
-                            CreateBitField (Arg3, 0x0D, SEN1)
-                            CreateBitField (Arg3, 0x0E, SEN2)
-                            Store (0x00010000, VRV1)
-                            While (One)
-                            {
-                                Store (PSH0, _T_2)
-                                If (LEqual (_T_2, Zero))
-                                {
-                                    If (CPUT)
-                                    {
-                                        Store (0x0200, RETN)
-                                        Or (RETN, PSH0, RETN)
-                                        Store (\_TZ.RTMP (), PDTS)
-                                    }
-
-                                    Return (GPSP)
-                                }
-                                ElseIf (LEqual (_T_2, One))
-                                {
-                                    Store (0x0300, RETN)
-                                    Or (RETN, PSH0, RETN)
-                                    Store (0x03E8, PDTS)
-                                    Return (GPSP)
-                                }
-                                ElseIf (LEqual (_T_2, 0x02))
-                                {
-                                    Store (0x0102, RETN)
-                                    Store (^^LPCB.EC0.ST8E (0x23, Zero), TMGP)
-                                    Store (Zero, PDTS)
-                                    Store (Zero, SFAN)
-                                    Store (Zero, CPUE)
-                                    Store (Zero, SKNT)
-                                    Store (Zero, TM01)
-                                    Store (Zero, TM02)
-                                    Return (GPSP)
-                                }
-
-                                Break
-                            }
-                        }
-                        ElseIf (LEqual (SFNN, 0x20))
-                        {
-                            CreateBitField (Arg3, 0x18, NRIT)
-                            CreateBitField (Arg3, 0x19, NRIS)
-                            If (NRIS)
-                            {
-                                If (NRIT)
-                                {
-                                    Or (RET1, 0x00100000, RET1)
-                                }
-                                Else
-                                {
-                                    Store (Subtract (CPUP, One), SLMT)
-                                    NCPS (0x80)
-                                    And (RET1, 0xFEFFFFFF, RET1)
-                                }
-                            }
-
-                            Or (RET1, 0x40000000, RET1)
-                            If (NLIM)
-                            {
-                                Or (RET1, One, RET1)
-                            }
-
-                            Return (RET1)
-                        }
-                        ElseIf (LEqual (SFNN, 0x13))
-                        {
-                            Return (Arg3)
-                        }
-                        ElseIf (LEqual (SFNN, 0x21))
-                        {
-                            Return (\_PR.CPU0._PSS)
-                        }
-                        ElseIf (LEqual (SFNN, 0x22))
-                        {
-                            CreateDWordField (Arg3, Zero, PCAP)
-                            Store (Subtract (CPUP, PCAP), SLMT)
-                            NCPS (0x80)
-                            Store (PCAP, PSAP)
-                            Return (PCAP)
-                        }
-                        ElseIf (LEqual (SFNN, 0x23))
-                        {
-                            Return (PSAP)
-                        }
-                        ElseIf (LEqual (SFNN, 0x25))
-                        {
-                            Return (\_PR.CPU0._TSS)
-                        }
-                        ElseIf (LEqual (SFNN, 0x26))
-                        {
-                            CreateDWordField (Arg3, Zero, TCAP)
-                            Store (TCAP, PDC0)
-                            NCPS (0x82)
-                            Return (TCAP)
-                        }
-                        Else
-                        {
-                            Return (0x80000002)
-                        }
-
-                        Return (Zero)
-                    }
-
-                    Return (Zero)
-                }
+                
 
                 Method (RSTO, 0, NotSerialized)
                 {
@@ -8424,6 +7966,180 @@ DefinitionBlock ("", "DSDT", 2, "_ASUS_", "Notebook", 0x00000013)
 
                         Return (CRS2)
                     }
+                }
+                Method (_DSM, 4, NotSerialized)
+                {
+                    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                    Return (Package()
+                    {
+                        "AAPL,snb-platform-id", Buffer() { 0x00, 0x00, 0x01, 0x00 },
+                        "hda-gfx", Buffer() { "onboard-1" },
+                    })
+                }
+                OperationRegion (RMPC, PCI_Config, 0x10, 4)
+                Field (RMPC, AnyAcc, NoLock, Preserve)
+                {
+                    BAR1,32,
+                }
+                Device (PNLF)
+                {
+                    // normal PNLF declares (note some of this probably not necessary)
+                    Name (_ADR, Zero)
+                    Name (_HID, EisaId ("APP0002"))
+                    Name (_CID, "backlight")
+                    Name (_UID, 10)
+                    Name (_STA, 0x0B)
+                    //define hardware register access for brightness
+                    // lower nibble of BAR1 is status bits and not part of the address
+                    OperationRegion (BRIT, SystemMemory, And(^BAR1, Not(0xF)), 0xe1184)
+                    Field (BRIT, AnyAcc, Lock, Preserve)
+                    {
+                        Offset(0x48250),
+                        LEV2, 32,
+                        LEVL, 32,
+                        Offset(0x70040),
+                        P0BL, 32,
+                        Offset(0xc8250),
+                        LEVW, 32,
+                        LEVX, 32,
+                        Offset(0xe1180),
+                        PCHL, 32,
+                    }
+                    // DEB1 special for setting KLVX at runtime...
+                    //Method (DEB1, 1, NotSerialized)
+                    //{
+                    //    Store(Arg0, KLVX)
+                    //}
+                    // LMAX: use 0x710 to force OS X value
+                    //       or use any arbitrary value
+                    //       or use 0 to capture BIOS setting
+                    Name (LMAX, 0x710)
+                    // KMAX: defines the unscaled range in the _BCL table below
+                    Name (KMAX, 0x710)
+                    // KPCH: saved value for PCHL
+                    //   use Ones if PCHL does not need to be set (normal)
+                    //   use Zero if your laptop nees PCHL set on every brightness set
+                    //   you can also use a custom value (not Ones, not Zero)
+                    Name(KPCH, Ones)
+                    // _INI deals with differences between native setting and desired
+                    Method (_INI, 0, NotSerialized)
+                    {
+                        // save value of PCHL for later
+                        If (LNot(KPCH)) { Store(PCHL, KPCH) }
+                        // determine LMAX to use
+                        If (LNot(LMAX)) { Store(ShiftRight(LEVX,16), LMAX) }
+                        If (LNot(LMAX)) { Store(KMAX, LMAX) }
+                        Store(ShiftLeft(LMAX,16), KLVX)
+                        If (LNotEqual(LMAX, KMAX))
+                        {
+                            // Scale all the values in _BCL to the PWM max in use
+                            Store(0, Local0)
+                            While (LLess(Local0, SizeOf(_BCL)))
+                            {
+                                Store(DerefOf(Index(_BCL,Local0)), Local1)
+                                Divide(Multiply(Local1,LMAX), KMAX,, Local1)
+                                Store(Local1, Index(_BCL,Local0))
+                                Increment(Local0)
+                            }
+                            // Also scale XRGL and XRGH values
+                            Divide(Multiply(XRGL,LMAX), KMAX,, XRGL)
+                            Divide(Multiply(XRGH,LMAX), KMAX,, XRGH)
+                        }
+                        // adjust values to desired LMAX
+                        Store(ShiftRight(LEVX,16), Local1)
+                        If (LNotEqual(Local1, LMAX))
+                        {
+                            Store(LEVL, Local0)
+                            If (LOr(LNot(Local0),LNot(Local1))) { Store(LMAX, Local0) Store(LMAX, Local1) }
+                            Divide(Multiply(Local0,LMAX), Local1,, Local0)
+                            //REVIEW: wait for vblank before setting new PWM config
+                            //Store(P0BL, Local7)
+                            //While (LEqual (P0BL, Local7)) {}
+                            If (LGreater(LEVL, LMAX))
+                            { Store(KLVX, LEVX) Store(Local0, LEVL) }
+                            Else
+                            { Store(Local0, LEVL) Store(KLVX, LEVX) }
+                        }
+                    }
+                    // _BCM/_BQC: set/get for brightness level
+                    Method (_BCM, 1, NotSerialized)
+                    {
+                        // initialize for consistent backlight level before/after sleep
+                        If (LAnd(LNotEqual(KPCH, Ones),LNotEqual(PCHL, KPCH))) { Store(KPCH, PCHL) }
+                        If (LNotEqual(LEVW, 0x80000000)) { Store (0x80000000, LEVW) }
+                        If (LNotEqual(LEVX, KLVX)) { Store (KLVX, LEVX) }
+                        // store new backlight level
+                        Store(Match(_BCL, MGE, Arg0, MTR, 0, 2), Local0)
+                        If (LEqual(Local0, Ones)) { Subtract(SizeOf(_BCL), 1, Local0) }
+                        If (LNotEqual(LEV2, 0x80000000)) { Store(0x80000000, LEV2) }
+                        Store(DerefOf(Index(_BCL, Local0)), LEVL)
+                    }
+                    Method (_BQC, 0, NotSerialized)
+                    {
+                        Store(Match(_BCL, MGE, LEVL, MTR, 0, 2), Local0)
+                        If (LEqual(Local0, Ones)) { Subtract(SizeOf(_BCL), 1, Local0) }
+                        Return(DerefOf(Index(_BCL, Local0)))
+                    }
+                    Method (_DOS, 1, NotSerialized)
+                    {
+                        // Note: Some systems have this defined in DSDT, so uncomment
+                        // the next line if that is the case.
+                        //External(^^_DOS, MethodObj)
+                        ^^_DOS(Arg0)
+                    }
+                    // extended _BCM/_BQC for setting "in between" levels
+                    Method (XBCM, 1, NotSerialized)
+                    {
+                        // initialize for consistent backlight level before/after sleep
+                        If (LAnd(LNotEqual(KPCH, Ones),LNotEqual(PCHL, KPCH))) { Store(KPCH, PCHL) }
+                        If (LNotEqual(LEVW, 0x80000000)) { Store (0x80000000, LEVW) }
+                        If (LNotEqual(LEVX, KLVX)) { Store (KLVX, LEVX) }
+                        // store new backlight level
+                        If (LGreater(Arg0, XRGH)) { Store(XRGH, Arg0) }
+                        If (LAnd(Arg0, LLess(Arg0, XRGL))) { Store(XRGL, Arg0) }
+                        If (LNotEqual(LEV2, 0x80000000)) { Store(0x80000000, LEV2) }
+                        Store(Arg0, LEVL)
+                    }
+                    Method (XBQC, 0, NotSerialized)
+                    {
+                        Store(LEVL, Local0)
+                        If (LGreater(Local0, XRGH)) { Store(XRGH, Local0) }
+                        If (LAnd(Local0, LLess(Local0, XRGL))) { Store(XRGL, Local0) }
+                        Return(Local0)
+                    }
+                    // Set XOPT bit 0 to disable smooth transitions
+                    // Set XOPT bit 1 to wait for native BacklightHandler
+                    // Set XOPT bit 2 to force use of native BacklightHandler
+                    Name (XOPT, 0x02)
+                    // XRGL/XRGH: defines the valid range
+                    Name (XRGL, 40)
+                    Name (XRGH, 1808)
+                    // KLVX is initialization value for LEVX
+                    Name (KLVX, 0x7100000)
+                    // _BCL: returns list of valid brightness levels
+                    // first two entries describe ac/battery power levels
+                    Name (_BCL, Package()
+                    {
+                        1808,
+                        479,
+                        0,
+                        53, 55, 57, 59,
+                        62, 66, 71, 77,
+                        83, 91, 99, 108,
+                        119, 130, 142, 154,
+                        168, 183, 198, 214,
+                        232, 250, 269, 289,
+                        309, 331, 354, 377,
+                        401, 426, 453, 479,
+                        507, 536, 566, 596,
+                        627, 660, 693, 727,
+                        762, 797, 834, 872,
+                        910, 949, 990, 1031,
+                        1073, 1115, 1159, 1204,
+                        1249, 1296, 1343, 1391,
+                        1440, 1490, 1541, 1592,
+                        1645, 1698, 1753, 1808,
+                    })
                 }
             }
 
