@@ -27,4 +27,5 @@ At this point you should have
 - keyboard
 - USB
 - audio
+
 working. I found a cheap AR5B95 wifi card and installed [this](https://github.com/krszwsk/asus-x55vd-hackintosh/tree/master/kexts/toledaARPT.kext/) kext. I wasn't able to find anyone who got the stock one to work, every source indicates that it's not going to. There is a possibility to USB tether from an android or iPhone. You need to install [this](https://github.com/krszwsk/asus-x55vd-hackintosh/blob/master/kexts/HoRNDIS-rel8.pkg), execute [this](https://github.com/krszwsk/asus-x55vd-hackintosh/blob/master/other/enable_tethering.sh) and reboot.
